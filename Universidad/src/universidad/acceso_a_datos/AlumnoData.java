@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,6 +24,8 @@ import universidad.entidades.Alumno;
  */
 public class AlumnoData {
     private Connection con = null;
+    
+    
     public AlumnoData(){
     con=Conexion.getConexion();
     
@@ -82,7 +86,7 @@ public class AlumnoData {
         
         }
     public Alumno buscarAlumno(int id){
-    String sql="SELECT dni,apellido,nombre,frechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
+    String sql="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
     Alumno alumno =null;
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -106,4 +110,40 @@ public class AlumnoData {
         }
         return alumno;
     }
+    
+    public List<Alumno> listarAlumno(){
+       
+        List<Alumno> alumnos = new ArrayList<>();
+        
+        try {
+           String sql = "SELECT * FROM alumno WHERE estado = 1";
+           PreparedStatement  pr = con.prepareStatement(sql);
+           
+            ResultSet rs = pr.executeQuery();
+            
+            while(rs.next()){
+                
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setActivo(rs.getBoolean("estado"));
+                alumnos.add(alumno);
+                
+            }
+            
+            pr.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+        
+        return alumnos; 
+        
+    }
 }
+        
+    
+
