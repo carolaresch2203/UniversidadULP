@@ -13,7 +13,7 @@ public class Universidad {
     public static void main(String[] args) {
         
         Connection con = (Connection) Conexion.getConexion();
-        //Alumno juan=new Alumno(12121212,"Luna","juan Pedro",LocalDate.of(1980,4,25),true);
+        Alumno juan=new Alumno(12121212,"Luna","juan Pedro",LocalDate.of(1980,4,25),true);
         //AlumnoData alu=new AlumnoData();
         //alu.guardarAlumno(juan);
         //alu.modificarAlumno(juan);
@@ -24,6 +24,8 @@ public class Universidad {
         //System.out.println("apellido"+alumnoEncontrado.getApellido());
                 
         AlumnoData alu=new AlumnoData();
+        
+       
         for(Alumno alumno:alu.listarAlumnos()){
             System.out.println(alumno.getDni());
             System.out.println(alumno.getApellido());

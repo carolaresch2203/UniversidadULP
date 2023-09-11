@@ -84,7 +84,7 @@ public class AlumnoData {
         
         }
     public Alumno buscarAlumno(int id){
-    String sql="SELECT dni,apellido,nombre,frechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
+    String sql="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
     Alumno alumno =null;
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -108,29 +108,30 @@ public class AlumnoData {
         }
         return alumno;
     }
-    public List<Alumno> listarAlumnos() {
-        String sql = "SELECT idAlumno,dni, apellido,nombre,fechaNacimiento FROM alumno WHERE estado=1";
-        ArrayList<Alumno> alumnos=new ArrayList<>();
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Alumno alumno = new Alumno();
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setDni(rs.getInt("dni"));
-                alumno.setApellido(rs.getString("apellido"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(true);
-                
-                alumnos.add(alumno);
-            } 
-            ps.close();
+   public List<Alumno> listarAlumnos() {
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
-        }
-        return alumnos;
-    }
+ List<Alumno> alumnos = new ArrayList<>();
+ try {
+ String sql = "SELECT * FROM alumno WHERE estado = 1 ";
+ PreparedStatement ps = con.prepareStatement(sql);
+ ResultSet rs = ps.executeQuery();
+ while (rs.next()) {
+ Alumno alumno = new Alumno();
+
+ alumno.setIdAlumno(rs.getInt("idAlumno"));
+ alumno.setDni(rs.getInt("dni"));
+ alumno.setApellido(rs.getString("apellido"));
+ alumno.setNombre(rs.getString("nombre"));
+ alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+ alumno.setActivo(rs.getBoolean("estado"));
+ alumnos.add(alumno);
+ }
+ ps.close();
+
+
+ } catch (SQLException ex) {
+ JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno "+ex.getMessage());
+ }
+return alumnos;
+}
 }
