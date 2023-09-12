@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/Universidad.java</file>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/entidades/Materia.java</file>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/entidades/Alumno.java</file>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/acceso_a_datos/AlumnoData.java</file>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/acceso_a_datos/Conexion.java</file>
-            <file>file:/C:/Users/Salame01/Documents/NetBeansProjects/UniversidadULP/Universidad/src/universidad/entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/carol/Documents/ACADEMICO/ARGENTINA%20PROGRAMA/Git/UniversidadULP/Universidad/src/universidad/acceso_a_datos/MateriaData.java</file>
+            <file>file:/C:/Users/carol/Documents/ACADEMICO/ARGENTINA%20PROGRAMA/Git/UniversidadULP/Universidad/src/universidad/acceso_a_datos/AlumnoData.java</file>
+            <file>file:/C:/Users/carol/Documents/ACADEMICO/ARGENTINA%20PROGRAMA/Git/UniversidadULP/Universidad/src/universidad/acceso_a_datos/InscripcionData.java</file>
+            <file>file:/C:/Users/carol/Documents/ACADEMICO/ARGENTINA%20PROGRAMA/Git/UniversidadULP/Universidad/src/universidad/Universidad.java</file>
         </group>
     </open-files>
 </project-private>
